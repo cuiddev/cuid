@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+ 
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+		</head>
+	
+	<body>
+		
+		<div align="center">
+			<br>
+			
+		<input type="text" name="ticker" id="ticker" placeholder="Ticker" value="BTC">  <input type="text" name="name" id="name" placeholder="Full Name" value="Bitcoin"> <input type="text" name="info" id="info" placeholder="Web URL" value="bitcoin.org"> <select type="text" name="type" id="type"><option selected>COIN</option><option>TOKEN</option></select>
+		<div class="result"></div> 
+		<input type="button" value="Create" onClick="create();">
+			</div>
+		
+		
+		</body>
+	
+	
+	<script>
+			  var cuiddatallobj = {};
+		  var cuids = {};
+		var reversecuidname
+	
+	window.addEventListener('load', function() {
+
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+
+    // Use the browser's ethereum provider
+    var provider = web3.currentProvider
+	
+ 
+	  
+var cuidcontract = web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "calldata",
+				"type": "bytes"
+			}
+		],
+		"name": "emitCUID",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "calldata",
+				"type": "bytes"
+			}
+		],
+		"name": "logcuid",
+		"type": "event"
+	}
+]);
+
+	  
+
+var cuidcontractd = cuidcontract.at("0x43b3fD18DfB1e42110033ce89Ce1f6b2736D76B0");
+	  
+	  cuidcontractd.logcuid({}, { fromBlock: 0, toBlock: 'latest' }).get((error, eventResult) => {
+  if (error) {
+    console.log('Error in myEvent event handler: ' + error);
+	  } else {
+		  
+	 console.log(eventResult);
+		  
+		  
+		  for (i=0; i<eventResult.length; i++) {
+		obs ="";	  
+		obs = JSON.parse(web3.toAscii($.trim(eventResult[i].args.calldata)));
+			  
+ 			  
+			  if (obs[Object.keys(obs)].cuid!=null) {cuids[obs[Object.keys(obs)].cuid]=i}
+				  
+		  
+			   if (cuiddatallobj[Object.keys(obs)]==null) {
+				  cuiddatallobj[Object.keys(obs)]= {}; 
+				   
+			  cuiddatallobj[Object.keys(obs)][0] = obs[Object.keys(obs)];
+			  } else {
+				  
+				
+cuiddatallobj[Object.keys(obs)][Object.keys(cuiddatallobj[Object.keys(obs)]).length]=obs[Object.keys(obs)];
+			  } 
+			  
+			
+
+		  
+		  
+console.log('Result: ' + web3.toAscii($.trim(eventResult[i].args.calldata)));  
+		  }
+		 
+		   var res = web3.toAscii($.trim(eventResult[0].args.calldata));
+
+ 
+	 
+		  
+ 	  }
+});
+	  
+	  
+	  
+	  
+   
+
+  } else {
+	      console.log('No web3? You should consider trying MetaMask!')
+
+	  return false;
+  }
+
+});
+
+	console.log();
+		
+  	
+			function create() {
+			
+			
+			var name = $.trim($("#name").val().substr(0,25));
+			var ticker = $.trim($("#ticker").val().substr(0,7)).toUpperCase();
+			var type = ($("#type").val()=="COIN" || $("#type").val()=="TOKEN" ? $("#type").val() : "").toUpperCase();
+			var info = $.trim($("#info").val().replace(/^https?\:\/\//i, ""));
+			
+				var cc = 0;
+				for(check=0; check==0 && cc<100;) {
+					cc++
+				var cuid = ticker.substr(0,3) + (100000 + cc);
+					
+				 
+				if (cuids[cuid]==null) { check = 1; } else { console.log(cuid)}
+
+					
+				}
+				
+				
+				var cuidobject = {};
+				 cuidobject[ticker] = {"name":name,"ticker":ticker,"info":info,"type":type,"cuid":cuid};
+				
+				console.log(cuidobject);
+				
+				var strobj = $.trim(String(JSON.stringify(cuidobject)));
+				
+				datahex = strobj;
+				$(".result").html(web3.fromAscii(datahex));
+			
+			}
+		
+		/*
+		function posttx(cuiddata) {
+ 
+
+	 
+		var gasHex = '0x' + gasVal.toString(16);
+ 		var gasPrice = 22000000000; var gpHex = '0x' + gasPrice.toString(16);
+ 		var strin = cuiddata; var datahex = '0x' + cuiddata.toString(16);
+
+   		web3.eth.sendTransaction({
+			from: web3.eth.coinbase,
+			to: "0x0b6164c995817E4a1917f76EA0E0a10c65f4d19C",
+			value: 0,
+			gas: 80000,
+			gasPrice: gpHex,
+			data: datahex
+		}, function (err, transactionHash) {
+			if (!err)
+				console.log(transactionHash);
+		});
+	 
+}
+		*/
+		
+		
+		
+	
+	</script>
+	</html>

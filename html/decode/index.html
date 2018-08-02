@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>CUID Registry - Cryptocurrency Unique Identifier Standard</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="/css/landing-page.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Icons Grid -->
+<section class="features-icons bg-dark text-center">
+		<div class="container">
+				<div class="row">
+						<div class="col-xl-12 mx-auto"><a href="/">Back to Main</a><br><br>
+								<div class="row no-gutters mainbox">
+										<div class="col-md-5 mx-auto" style="height: 540px;">
+												<div style="background: #fff; padding: 0px; height: 100%; width: 460px;  padding: 30px;" align="center">
+														<div class="textrightdecode cuidname"> </div>
+														<hr><br>
+														<div id="qrcode" style="float: left; width: 140px;"></div>
+														<div style="width: 240px; float: left; margin-left: 20px;" align="left">
+														
+															<span class="info">Ticker:</span> <span id="ticker"></span> 
+														
+															&nbsp;&nbsp;<span class="info">Name:</span> <span id="name"></span>
+															<hr>
+															<span class="info">Type:</span> <span id="type"></span> <span class="suggest" data-title="Type Field">Suggest Edit</span>
+															<hr>
+															<span class="info">Web/Twitter:</span> <span id="info"></span> <span class="suggest" data-title="Info Field">Suggest Edit</span>
+															
+																</div>
+													
+													<div style="clear: both; "></div>
+													<hr>
+													<div id="json" style="font-size: 9px;"></div>
+													<hr>
+													<div id="encoded" style="font-size: 9px; word-wrap: break-word; padding:0px 7px;"></div>
+													<hr>
+													<br>
+													<img src="/logo.png" height="30" alt="CUID Logo"> 
+												</div>
+										</div>
+									
+									  
+		  <div class="col-md-5 mx-auto" id="suggestboxc"><h3 >Suggest an edit for <br>
+<span class="cuidname"></span></h3><span class="suggesttype"></span><br><br><textarea class="suggestbox"></textarea><br><br><button type="button" class="btn btn-lg btn-primary">Send Suggestion</button><br><br><span class="cancel">Cancel</span></div>
+									
+									
+									
+								</div>
+						</div>
+				</div>
+		</div>
+</section>
+<section class="call-to-action bg-light">
+		<div class="container">
+				<div class="row">
+						<div class="col-md-12 col-lg-12">
+								<div class="text-center">
+										<h2 class="mb-4" style="color: #ffc000 !important;">Donate us!</h2>
+										<strong>ETH: 0xDd50a004Fb4F1704544B0a052E14c53F5251ed75  &nbsp;&nbsp;  BTC: 3GCnXqtAsRCQsQ6HrVi34hLy4TTchK596i</strong><br>
+										Your donations are really important. We use ETH to pay gas prices,<br>
+										to attend meetings/events, marketing purposes.<br>
+										<br>
+										Thank You! <br>
+										<h2 class="mb-4">Join the Community</h2>
+										Join discussion on Slack, and help us to grow. Also, you can contribute to project on GitHub.
+										<div style="font-size: 50px"> <a href="https://github.com/cuiddev/cuid.services" target="_blank"><i class="fa fa-github"></i></a>&nbsp;&nbsp; <a href="https://join.slack.com/t/cuid/shared_invite/enQtNDA1MzExMjc3NjY1LWU4ZDc0NGM3ZWE0YjQxOGQxZWU2OGIwMWJjZTRmMzliMDFkOGU4YjZiODZiZGZhYTZlZDE1YWNkMGM2ZTE2ZmE" target="_blank"><i class="fa fa-slack"></i></a> &nbsp; <a href="https://twitter.com/cuidregistry" target="_blank"><i class="fa fa-twitter"></i></a> </div>
+								</div>
+						</div>
+				</div>
+		</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-dark">
+		<div class="container" style="font-size: 11px;">
+				<div class="row">
+						<div class="col-lg-6 text-center text-lg-left my-auto">
+								<ul class="list-inline mb-2">
+										<li class="list-inline-item"> <a href="#">About</a> </li>
+										<li class="list-inline-item">&sdot;</li>
+										<li class="list-inline-item"> <a href="#">Contact</a> </li>
+										<li class="list-inline-item">&sdot;</li>
+										<li class="list-inline-item"> <a href="#">Terms of Use</a> </li>
+										<li class="list-inline-item">&sdot;</li>
+										<li class="list-inline-item"> <a href="#">Privacy Policy</a> </li>
+								</ul>
+						</div>
+						<div class="col-lg-6 h-100 text-center text-lg-right my-auto"> CUID | UID Registry for Cryptocurrencies. All Rights Reserved. </div>
+				</div>
+		</div>
+</footer>
+
+<!-- Bootstrap core JavaScript --> 
+<script src="/vendor/jquery/jquery.min.js"></script> 
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<script type="text/javascript" src="/libqrcode.js"></script> 
+<script type="text/javascript" src="/qrcode.js"></script> 
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+<script>
+		  
+		   var searchob= {};
+		  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		   var cuidfromurl=$.trim(hashes[0]);
+		  
+		  
+		   $(".suggest").click(function() {
+			   
+			   
+			   $(".suggesttype").html($(this).attr("data-title"))
+			 
+			    $("#suggestboxc").show();
+			   
+		
+			   
+			   
+		   })
+	
+		     $(".cancel").click(function() {
+				
+				 $("#suggestboxc").hide();
+				
+		   })
+			   
+		
+		  
+		  
+		  $(document).ready(function() {
+			  
+			  
+			  
+			  
+			  $('#qrcode').qrcode({width: 140,height: 140,text: cuidfromurl});
+
+
+$.getJSON( "/list.json", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+	  
+ 	  
+	
+	  
+	  $.each( val, function( keys, vals ) {
+		  
+		    var okey = vals["cuid"];
+		  
+ 	  searchob[okey] = vals;
+	  });
+	  
+   });
+	
+	
+	var jsonshow ='{"'+searchob[cuidfromurl]["ticker"]+'":{"name":"'+searchob[cuidfromurl]["name"]+'","ticker":"'+searchob[cuidfromurl]["ticker"]+'","info":"'+searchob[cuidfromurl]["info"]+'","type":"'+searchob[cuidfromurl]["type"]+'","cuid":"'+searchob[cuidfromurl]["cuid"]+'"}}';
+	
+	var hexdata = jsonshow
+	
+	$(".cuidname").html(searchob[cuidfromurl]["cuid"]);
+	$("#name").html(searchob[cuidfromurl]["name"]);
+	$("#info").html(searchob[cuidfromurl]["info"]);
+	$("#type").html(searchob[cuidfromurl]["type"]);
+	$("#ticker").html(searchob[cuidfromurl]["ticker"]);
+	$("#json").html(jsonshow);
+	$("#encoded").html(web3.fromAscii(jsonshow));
+	
+ 
+	
+	
+					 
+				  
+  
+});
+			  
+			  
+		  })
+	  
+		 
+ 
+		  
+		  
+	  </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 0.9rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.bg-light {
+    background: rgba(255,255,255,0.7) !important;
+}
+
+.bg-dark {
+	  background: url("../img/backcommon.jpg") no-repeat center center;
+}
+
+ 
+header.masthead {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+header.masthead .overlay {
+  position: absolute;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.1;
+}
+
+header.masthead h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  header.masthead {
+	  margin-top: -100px;
+    padding-top: 18rem;
+    padding-bottom: 9rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+
+.showcase .showcase-text {
+  padding: 3rem;
+}
+
+.showcase .showcase-img {
+  min-height: 30rem;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
+  }
+}
+
+.features-icons {
+
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon i {
+  font-size: 4.5rem;
+}
+
+.features-icons .features-icons-item:hover .features-icons-icon i {
+  font-size: 5rem;
+}
+
+.testimonials {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.testimonials .testimonial-item {
+  max-width: 18rem;
+}
+
+.testimonials .testimonial-item img {
+  max-width: 12rem;
+  box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+
+.call-to-action {
+  position: relative;
+  background-color: #343a40;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.call-to-action .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #F5B500;
+    border-color: #F5B500;
+}
+
+.form-control { padding: .275rem .55rem;}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .360rem .55rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+	}
+
+.text-primary { color:#ffc000 !important; }
+
+a { color: #333;}
+a:hover {
+    color: #ffc000;
+    text-decoration: none;
+}
+.textrightdecode { height: 73px; line-height: 93px; font-size: 73px; color: #ffc000;  }
+
+.textright { height: 33px; line-height: 33px; font-size: 33px; color: #ffc000; width: 200px; float: left; }
+
+	.textupper { height: 33px; line-height: 14px; font-size: 14px; color: #111; float: left; margin-top: 3px; }
+						   .textupper span {font-size:11px;}
+
+						   .info {font-size:11px; color: #ffc000;}
+						   .suggest {font-size:11px; color: #ffc000; cursor: pointer;}
+						   .suggest:hover {font-size:11px; color: #111;}
+
+  							.cancel {font-size:12px; color: #111;  cursor: pointer;}
+						   .cancel:hover {font-size:12px; color: #ffc000;}
+
+
+#suggestboxc { height: 440px; background:rgba(255,255,255,0.5); padding:30px; display: none;}
+#suggestboxc .cuidname { color:#ffc000; }
+.suggestbox { width:80%; padding: 20px; font-size:20px;}
+
+
+
+
+
+						   .textlower {height: 33px; line-height: 33px; font-size: 33px; color: #ffc000;}
+.resulttext {height: 23px; line-height: 23px; font-size: 23px; color: #111;}
+.resultitems {}
+.resultitems:hover {opacity:0.5;}
+.resultitems .fa { cursor:pointer;}
