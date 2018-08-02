@@ -12,4 +12,4 @@ Donate us
 Donate us for gas prices/marketing and other services.
 
 Support or Contact
-Please feel free to contact: hi@cuid.services
+Please feel free to contact: cuid@cuid.services
