@@ -1,4 +1,4 @@
-## CUID - Cryptocurrency Unique Identifier Standart
+## CUID - Cryptocurrency Unique Identifier Standard
 A new data field standard for cryptocurrency related API communications. We are trying to solve the Name/Ticker conflict of cryptocurrencies.
 
 ### What are we trying to do?
