@@ -182,7 +182,7 @@ a:hover {
 						   .cancel:hover {font-size:12px; color: #ffc000;}
 
 
-#suggestboxc { height: 440px; background:rgba(255,255,255,0.5); padding:30px; display: none;}
+#suggestboxc { height: 580px; background:rgba(255,255,255,0.5); padding:30px; display: none;}
 #suggestboxc .cuidname { color:#ffc000; }
 .suggestbox { width:80%; padding: 20px; font-size:20px;}
 

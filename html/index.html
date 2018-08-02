@@ -23,13 +23,13 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#"><img src="logo.png" height="50" alt="CUID Logo"></a>
-        <a class="btn btn-primary" href="#">Donate</a>
+        <a class="btn btn-primary" href="#donate">Donate</a>
       </div>
     </nav>
 
@@ -45,7 +45,7 @@
 	 <div class="mb-4">  Our mission is to encourage exhanges & cryptocurrency info websites to add CUID field in their API data.
 Also, we provide a tool that you can search coin/token and find its CUID. We already start to define popular currencies. Send request to create CUID of a coin/token. </div>
 			  
-			  <a class="btn btn-primary" href="#">Search CUID</a> <a class="btn btn-primary" href="https://github.com/cuiddev/cuid.services/issues/new?template=cuid-request.md" target="_blank">Add Coin/Token</a>   
+			  <a class="btn btn-primary" href="#search">Search CUID</a> <a class="btn btn-primary" href="https://github.com/cuiddev/cuidregistry/issues/new?template=cuidrequest.md" target="_blank">Add Coin/Token</a>   
           </div>
        
         </div>
@@ -55,12 +55,12 @@ Also, we provide a tool that you can search coin/token and find its CUID. We alr
 	  
 	  
 	   <!-- Image Showcases -->
-    <section class="showcase" style="padding: 70px 0px;">
+    <section class="showcase" style="padding: 70px 0px;" id="search">
       <div class="container">
         <div class="row no-gutters">
                   <div class="col-md-12 mb-2 mb-md-0 text-center" align="center">
 					
-					        <h1 class="mb-0" id="search" name="search">Search Coin/Token</h1>
+					        <h1 class="mb-0">Search Coin/Token</h1>
 					<div class="mb-4">Storing in 0x43b3fD18DfB1e42110033ce89Ce1f6b2736D76B0 event log.</div>
 					    <div class="resultCon" style="display: none;">
 							<div class="resulttext"></div>
@@ -74,11 +74,11 @@ Also, we provide a tool that you can search coin/token and find its CUID. We alr
 					  </div>
 					  
                   <input type="email" class="form-control form-control-xs mb-2 searchinput" placeholder="Bitcoin, BTC, ETH, Sky, EOS ..." style="max-width: 800px; display: inline-block;"><br>
-					  <button type="button" class="btn btn-lg btn-primary makesearch" disabled>Search CUID</button>
+					 <button type="button" class="btn btn-lg btn-primary makesearch" disabled>Search CUID</button>
 					<br><br>
 					
 					 
- 					<a href="">Export Full List (JSON)</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="">Contract on Etherscan</a><br><br><a href="https://github.com/cuiddev/cuid.services/issues/new?template=cuid-request.md" target="_blank">Submit Request</a><br>
+ 					<a href="list.json" target="_blank">Export Full List (JSON)</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://etherscan.io/address/0x43b3fd18dfb1e42110033ce89ce1f6b2736d76b0" target="_blank">Contract on Etherscan</a><br><br><a href="https://github.com/cuiddev/cuidregistry/issues/new?template=cuidrequest.md" target="_blank">Submit Request</a><br>
 					
 					
 					
@@ -108,7 +108,7 @@ to help developers.</h2>
                 <i class="icon-screen-desktop m-auto text-primary"></i>
               </div>
                <h5>Gather Together</h5>
-              <p class="lead mb-0">We will attend events, conferences to spread the standard. Join US on Github</p>
+              <p class="lead mb-0">We will attend events, conferences to spread the standard. Join US on <a href="https://github.com/cuiddev/cuidreqistry" target="_blank">Github</a></p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -126,7 +126,7 @@ to help developers.</h2>
                 <i class="icon-check m-auto text-primary"></i>
               </div>
               <h5>Search & Use</h5>
-              <p class="lead mb-0">Search & Find your coin/token CUID. Use form to create request / Go to Github.</p>
+              <p class="lead mb-0">Search & Find your coin/token CUID. Use form to create request / Go to <a href="https://github.com/cuiddev/cuidreqistry" target="_blank">Github</a>.</p>
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@ We will seek for conferences and events to spread the word, we will contact all 
       </div>
     </section>
      <!-- Call to Action -->
-    <section class="call-to-action bg-dark">
+    <section class="call-to-action bg-dark" id="donate">
        <div class="container">
         <div class="row">
           
@@ -181,7 +181,7 @@ Join discussion on Slack, and help us to grow. Also, you can contrubite to proje
 			  
 			  <div style="font-size: 50px">
 				  
-			<a href="https://github.com/cuiddev/cuid.services" target="_blank"><i class="fa fa-github"></i></a>&nbsp;&nbsp;
+			<a href="https://github.com/cuiddev/cuidreqistry" target="_blank"><i class="fa fa-github"></i></a>&nbsp;&nbsp;
 			<a href="https://join.slack.com/t/cuid/shared_invite/enQtNDA1MzExMjc3NjY1LWU4ZDc0NGM3ZWE0YjQxOGQxZWU2OGIwMWJjZTRmMzliMDFkOGU4YjZiODZiZGZhYTZlZDE1YWNkMGM2ZTE2ZmE" target="_blank"><i class="fa fa-slack"></i></a> &nbsp;
 			<a href="https://twitter.com/cuidregistry" target="_blank"><i class="fa fa-twitter"></i></a>
 				  

@@ -27,7 +27,7 @@
 				<div class="row">
 						<div class="col-xl-12 mx-auto"><a href="/">Back to Main</a><br><br>
 								<div class="row no-gutters mainbox">
-										<div class="col-md-5 mx-auto" style="height: 540px;">
+										<div class="col-md-5 mx-auto" style="height: 580px;">
 												<div style="background: #fff; padding: 0px; height: 100%; width: 460px;  padding: 30px;" align="center">
 														<div class="textrightdecode cuidname"> </div>
 														<hr><br>
@@ -46,6 +46,8 @@
 													
 													<div style="clear: both; "></div>
 													<hr>
+													<div id="contract" style="font-size: 12px; font-weight: bold;">Checking Contract</div>
+														<hr>
 													<div id="json" style="font-size: 9px;"></div>
 													<hr>
 													<div id="encoded" style="font-size: 9px; word-wrap: break-word; padding:0px 7px;"></div>
@@ -56,7 +58,9 @@
 										</div>
 									
 									  
-		  <div class="col-md-5 mx-auto" id="suggestboxc"><h3 >Suggest an edit for <br>
+		  <div class="col-md-5 mx-auto" id="suggestboxc"><br>
+<br>
+<h3>Suggest an edit for <br>
 <span class="cuidname"></span></h3><span class="suggesttype"></span><br><br><textarea class="suggestbox"></textarea><br><br><button type="button" class="btn btn-lg btn-primary">Send Suggestion</button><br><br><span class="cancel">Cancel</span></div>
 									
 									
@@ -79,7 +83,7 @@
 										Thank You! <br>
 										<h2 class="mb-4">Join the Community</h2>
 										Join discussion on Slack, and help us to grow. Also, you can contribute to project on GitHub.
-										<div style="font-size: 50px"> <a href="https://github.com/cuiddev/cuid.services" target="_blank"><i class="fa fa-github"></i></a>&nbsp;&nbsp; <a href="https://join.slack.com/t/cuid/shared_invite/enQtNDA1MzExMjc3NjY1LWU4ZDc0NGM3ZWE0YjQxOGQxZWU2OGIwMWJjZTRmMzliMDFkOGU4YjZiODZiZGZhYTZlZDE1YWNkMGM2ZTE2ZmE" target="_blank"><i class="fa fa-slack"></i></a> &nbsp; <a href="https://twitter.com/cuidregistry" target="_blank"><i class="fa fa-twitter"></i></a> </div>
+										<div style="font-size: 50px"> <a href="https://github.com/cuiddev/cuidregistry" target="_blank"><i class="fa fa-github"></i></a>&nbsp;&nbsp; <a href="https://join.slack.com/t/cuid/shared_invite/enQtNDA1MzExMjc3NjY1LWU4ZDc0NGM3ZWE0YjQxOGQxZWU2OGIwMWJjZTRmMzliMDFkOGU4YjZiODZiZGZhYTZlZDE1YWNkMGM2ZTE2ZmE" target="_blank"><i class="fa fa-slack"></i></a> &nbsp; <a href="https://twitter.com/cuidregistry" target="_blank"><i class="fa fa-twitter"></i></a> </div>
 								</div>
 						</div>
 				</div>
@@ -91,15 +95,14 @@
 		<div class="container" style="font-size: 11px;">
 				<div class="row">
 						<div class="col-lg-6 text-center text-lg-left my-auto">
-								<ul class="list-inline mb-2">
-										<li class="list-inline-item"> <a href="#">About</a> </li>
-										<li class="list-inline-item">&sdot;</li>
-										<li class="list-inline-item"> <a href="#">Contact</a> </li>
-										<li class="list-inline-item">&sdot;</li>
-										<li class="list-inline-item"> <a href="#">Terms of Use</a> </li>
-										<li class="list-inline-item">&sdot;</li>
-										<li class="list-inline-item"> <a href="#">Privacy Policy</a> </li>
-								</ul>
+							   <ul class="list-inline mb-2">
+              <li class="list-inline-item">
+                <a href="#"><strong>About:</strong> &nbsp;</a>
+				  We a bunch of developer trying to ease problems. CUID is open & free contact us on github / twitter or send email top cuid@cuid.services. This website do not use any cookies or information of you. 
+              </li>
+             
+            
+            </ul>
 						</div>
 						<div class="col-lg-6 h-100 text-center text-lg-right my-auto"> CUID | UID Registry for Cryptocurrencies. All Rights Reserved. </div>
 				</div>
@@ -114,10 +117,7 @@
 <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
 
 <script>
-		  
-		   var searchob= {};
-		  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-		   var cuidfromurl=$.trim(hashes[0]);
+	
 		  
 		  
 		   $(".suggest").click(function() {
@@ -126,11 +126,7 @@
 			   $(".suggesttype").html($(this).attr("data-title"))
 			 
 			    $("#suggestboxc").show();
-			   
-		
-			   
-			   
-		   })
+		  })
 	
 		     $(".cancel").click(function() {
 				
@@ -139,14 +135,122 @@
 		   })
 			   
 		
+	 
+	
+	
+	
+	
+				  var cuiddatallobj = {};
+		  var cuids = {};
+		var reversecuidname
+	
+	window.addEventListener('load', function() {
+
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+
+    // Use the browser's ethereum provider
+    var provider = web3.currentProvider
+	
+ 
+	  
+var cuidcontract = web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "calldata",
+				"type": "bytes"
+			}
+		],
+		"name": "emitCUID",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "calldata",
+				"type": "bytes"
+			}
+		],
+		"name": "logcuid",
+		"type": "event"
+	}
+]);
+
+	  
+	  	  
+		   var searchob= {};
+		  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		   var cuidfromurl=$.trim(hashes[0]);
+
+var cuidcontractd = cuidcontract.at("0x43b3fD18DfB1e42110033ce89Ce1f6b2736D76B0");
+	  
+ cuidcontractd.logcuid({}, { fromBlock: 0, toBlock: 'latest' }).get((error, eventResult) => {
+  
+	 if (error) { console.log('Error: ' + error); } else {
+	 
 		  
 		  
-		  $(document).ready(function() {
+		  for (i=0; i<eventResult.length; i++) {
+		obs ="";	  
+		obs = JSON.parse(web3.toAscii($.trim(eventResult[i].args.calldata)));
 			  
-			  
-			  
-			  
-			  $('#qrcode').qrcode({width: 140,height: 140,text: cuidfromurl});
+ 			  
+			  if (obs[Object.keys(obs)].cuid!=null) {cuids[obs[Object.keys(obs)].cuid]=i}
+				  
+		  
+			   if (cuiddatallobj[Object.keys(obs)]==null) {
+				  cuiddatallobj[Object.keys(obs)]= {}; 
+				   
+			  cuiddatallobj[Object.keys(obs)][0] = obs[Object.keys(obs)];   } else { cuiddatallobj[Object.keys(obs)][Object.keys(cuiddatallobj[Object.keys(obs)]).length]=obs[Object.keys(obs)];  } 
+ 
+		  
+			  	console.log('Result: ' + web3.toAscii($.trim(eventResult[i].args.calldata)));  
+		  }
+		 
+		   var res = web3.toAscii($.trim(eventResult[0].args.calldata));
+
+ 			console.log(cuiddatallobj);
+		 
+		 if (cuids[cuidfromurl] != null) { $("#contract").html("Stored in Contract");  } else { $("#contract").html("Waiting for storing in Contract"); }
+	 
+		  
+ 	  }
+});
+	  
+	  
+	  
+	  
+
+	  
+	  
+	  $('#qrcode').qrcode({width: 140,height: 140,text: cuidfromurl});
 
 
 $.getJSON( "/list.json", function( data ) {
@@ -185,10 +289,10 @@ $.getJSON( "/list.json", function( data ) {
 				  
   
 });
-			  
-			  
-		  })
-	  
+	
+	  }
+		
+ });
 		 
  
 		  
